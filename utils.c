@@ -56,6 +56,13 @@ int ft_is_char_whitespace(char c)
     return (0);
 }
 
+int ft_is_char_printable(char c)
+{
+    if (32 <= c && c <= 126)
+        return (1);
+    return (0);
+}
+
 int ft_in_char_numerical(char c)
 {
     if ('0' <= c && c <= '9')

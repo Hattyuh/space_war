@@ -2,22 +2,14 @@
 
 int main(void)
 {
-    //char *input;
-    
-    //input = get_input();
-    //if (!input)
-    // return (1);
-    //printf("%s\n", input);
-    ft_draw_plane();
-    
+    gameobject  player;
+    player = create_spaceship();
     while (1)
     {
+        clear_screen();
+        draw_sprite(player);
         usleep(500000);
-        ft_rotate_plane();
     }
-    
-    //free(input);
-    //input = NULL;
     return (0);
 }
 

@@ -68,3 +68,44 @@ void ft_rotate_plane(void)
         i++;   
     }
 }
+
+gameobject   create_spaceship()
+{
+    gameobject   player;
+    player.x = 15;
+    player.y = 20;
+    player.skin =
+    "    ^ \n"
+    "   / \\ \n"
+    " __| |__ \n"
+    "/__| |__\\ \n"
+    "   | | \n"
+    "   /_\\ \n";
+    return (player);
+}
+
+void    draw_sprite(gameobject obj)
+{
+    int i;
+    int j;
+
+    printf("\033[%d;%dH", obj.y, obj.x);
+    i = 0;
+    j = obj.y;
+    while (obj.skin[i])
+    {
+        if (ft_is_char_printable(obj.skin[i]) == 1)
+            printf("%c", obj.skin[i]);
+        i++;
+        if (obj.skin[i] == '\n')
+        {
+            j++;
+            printf("\033[%d;%dH", j, obj.x);
+        }
+    }
+}
+
+void    clear_screen()
+{
+    printf("\033[2J\033[2H");
+}
